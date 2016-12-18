@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script src="static/js/homepage.js"></script>
+
+	  {% for room in rooms %}
+		<script src="static/js/{{room.name}}.js"></script>
+		{% endfor %}
+
+
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+		<link rel="stylesheet" href="static/css/homepage.css"></script>
+
+</head>
+<body>
+
+<div class="menu" id="menu">
+
+<ul class="menu_items" id="menu_list">
+{% for room in rooms %}
+<li id={{ room.name }} onclick=show_{{room.name}}()>{{room.name}}</li>
+{% endfor %}
+</div>
+
+
+<input type="button" id="next" value="Next" />
+
+<div class="container" id="content">
+    <div class="row">
+        <p>Asynchronous page updates will appear here:</p>
+        <h3>Number list:</h3>
+        <div id="log">
+    </div>
+</div>
+
+</body>
+</html>
