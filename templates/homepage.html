@@ -23,7 +23,7 @@
 
 <ul class="menu_items" id="menu_list">
 {% for room in rooms %}
-<li id={{ room.name }} onclick=show_{{room.name}}()>{{room.name}}</li>
+<li id={{ room.name }} onclick=show_{{room.name}}() href='#{{room.name}}'>{{room.name}}</li>
 {% endfor %}
 </ul>
 </div>

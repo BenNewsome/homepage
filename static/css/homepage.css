@@ -27,6 +27,7 @@
   .menu_items li {
   	display: inline-block;
   	color: #000;
+		background-color: #eee;
     text-decoration: none;
 		padding: 5px 5px;
 		line-height: 90px;
@@ -41,6 +42,10 @@
       background-color: #555;
       color: white;
   }
+  .menu_items li:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
 
 .container {
 	margin-left: 100px;
