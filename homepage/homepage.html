@@ -3,12 +3,13 @@
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
-    <script src="static/js/homepage.js"></script>
-    <link rel="stylesheet" href="static/css/homepage.css"></link>
+    <script src="homepage/homepage.js"></script>
+    <link rel="stylesheet" href="homepage/homepage.css"></link>
 
     {% for room in rooms %}
 	<script src="static/js/{{room.name}}.js"></script>
-	<link rel="stylesheet" href="static/css/{{room.name}}.css"></link>
+	<script src="{{room.name}}/{{room.name}}.js"></script>
+	<link rel="stylesheet" href="{{room.name}}/{{room.name}}.css"></link>
     {% endfor %}
 
 

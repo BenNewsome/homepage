@@ -27,16 +27,14 @@
   .menu_items li {
   	display: inline-block;
   	color: #000;
-	background-color: #eee;
-        text-decoration: none;
-	padding: 5px 5px;
-	line-height: 70px;
-	height: 70px;
-	width: 70px;
-	text-align: center;
-	border: 5px solid #ddf;
-	border-radius: 5px;
-	margin: 5px;
+		background-color: #eee;
+    text-decoration: none;
+		padding: 5px 5px;
+		line-height: 90px;
+		height: 90px;
+		width: 90px;
+		text-align: center;
+
 		
   }
   

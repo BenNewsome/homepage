@@ -13,10 +13,15 @@ from random import random
 from time import sleep
 from threading import Thread, Event
 
-from psutil import virtual_memory as get_memory
+from pprint import pprint
 
 
-rooms=[{'name':'living_room'}, {'name':'bedroom'}, {'name':'server'}]
+import livingroom
+
+#from psutil import virtual_memory as get_memory
+
+
+rooms=[{'name':'livingroom'}, {'name':'bedroom'}, {'name':'server'}]
 
 
 __author__ = 'ben'
@@ -34,7 +39,7 @@ thread_stop_event = Event()
 
 class RandomThread(Thread):
     def __init__(self):
-        self.delay = 10
+        self.delay = 5
         super(RandomThread, self).__init__()
 
     def randomNumberGenerator(self):
@@ -46,10 +51,15 @@ class RandomThread(Thread):
         print "Making random numbers"
         while not thread_stop_event.isSet():
             number = round(random()*10,3)
-            number = str(get_memory())
+#            number = str(get_memory())
             print number
 						# emit(socket_name, json_data, namespace)
             socketio.emit('newnumber', {'number': number}, namespace='/test')
+
+            kodiData = livingroom.get_koid_info('benpi2.home:80')
+	    pprint( kodiData )
+            socketio.emit('kodi', kodiData, namespace='/livingroom')
+
             sleep(self.delay)
 
     def run(self):
@@ -79,4 +89,4 @@ def test_disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app)
+    socketio.run(app, host='0.0.0.0')
